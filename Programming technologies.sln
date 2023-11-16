@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab3", "Lab3\Lab3.csproj", "{D541BC92-C724-4AE7-A8C8-0988F4E9BF89}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab2", "Lab2\Lab2.csproj", "{97BBD799-BC96-470B-A4B8-D128898C7850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4", "Lab4\Lab4.csproj", "{54B9C5BD-D96F-41F4-8149-88BB87006CE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,13 +10,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D541BC92-C724-4AE7-A8C8-0988F4E9BF89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D541BC92-C724-4AE7-A8C8-0988F4E9BF89}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D541BC92-C724-4AE7-A8C8-0988F4E9BF89}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D541BC92-C724-4AE7-A8C8-0988F4E9BF89}.Release|Any CPU.Build.0 = Release|Any CPU
 		{97BBD799-BC96-470B-A4B8-D128898C7850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{97BBD799-BC96-470B-A4B8-D128898C7850}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97BBD799-BC96-470B-A4B8-D128898C7850}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97BBD799-BC96-470B-A4B8-D128898C7850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54B9C5BD-D96F-41F4-8149-88BB87006CE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54B9C5BD-D96F-41F4-8149-88BB87006CE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54B9C5BD-D96F-41F4-8149-88BB87006CE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54B9C5BD-D96F-41F4-8149-88BB87006CE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
