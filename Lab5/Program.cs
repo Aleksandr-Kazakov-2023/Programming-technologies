@@ -41,15 +41,8 @@ namespace Lab5
 
         public class StudentEqualityComparer : IEqualityComparer<Student>
         {
-            public bool Equals(Student x, Student y)
-            {
-                return x.LastName == y.LastName;
-            }
-
-            public int GetHashCode(Student obj)
-            {
-                return (obj as Student).LastName.GetHashCode();
-            }
+            public bool Equals(Student x, Student y) => x.LastName == y.LastName;
+            public int GetHashCode(Student obj) => (obj as Student).LastName.GetHashCode();
         }
 
         public static List<Student> GetNamesakes(List<Student> students)
@@ -63,7 +56,7 @@ namespace Lab5
 
         public static List<Student> GenerateStudent(int count)
         {
-            Random rnd = new Random((int)DateTime.Now.Ticks.GetHashCode());
+            Random rnd = new Random(Guid.NewGuid().GetHashCode());
             List<Student> students = new List<Student>();
             string[] lastNames =
             {
@@ -92,12 +85,12 @@ namespace Lab5
             };
             string[] groups = { "БИВТ", "БИСТ", "БПИ" };
             int year, month, day;
-            year = rnd.Next(1970, DateTime.Now.Year - 17);
-            month = rnd.Next(12) + 1;
-            day = rnd.Next(DateTime.DaysInMonth(year, month) + 1);
 
             for (int i = 0; i < count; i++)
             {
+                year = rnd.Next(1970, DateTime.Now.Year - 17);
+                month = rnd.Next(12) + 1;
+                day = rnd.Next(DateTime.DaysInMonth(year, month)) + 1;
                 int genderNum = rnd.Next(2);
                 string gender = genderNum == 0 ? "Мужской" : "Женский";
                 string firstName = genderNum == 0
