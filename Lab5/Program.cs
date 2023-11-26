@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 
 namespace Lab5
 {
@@ -8,22 +9,61 @@ namespace Lab5
     {
         public static void Main(string[] args)
         {
-            List<Student> students = GenerateStudent(20);
-            Console.WriteLine();
+            Simulation(20);
         }
 
-        void Simulation(int numberOfYears)
+        public static void Simulation(int numberOfStudents)
         {
-            List<Student> students = GenerateStudent(100);
-            for (int i = 0; i < numberOfYears; i++)
+            List<Student> students = GenerateStudent(numberOfStudents);
+            for (int i = 0; i < 5; i++)
             {
-
+                for (int j = 0; j < students.Count; j++)
+                {
+                    if (students[j].Course < 5)
+                    {
+                        students[j].Course++;
+                    }
+                    else
+                    {
+                        students.Remove(students[j]);
+                        j--;
+                    }
+                }
+                students.AddRange(GenerateStudent(numberOfStudents));
+                Console.WriteLine("Студенты:");
+                students.ForEach(Console.WriteLine);
+                List<Student> namesakes = GetNamesakes(students);
+                Console.WriteLine("Однофамильцы:");
+                namesakes.ForEach(Console.WriteLine);
+                Console.WriteLine();
             }
+        }
+
+        public class StudentEqualityComparer : IEqualityComparer<Student>
+        {
+            public bool Equals(Student x, Student y)
+            {
+                return x.LastName == y.LastName;
+            }
+
+            public int GetHashCode(Student obj)
+            {
+                return (obj as Student).LastName.GetHashCode();
+            }
+        }
+
+        public static List<Student> GetNamesakes(List<Student> students)
+        {
+            List<Student> namesakes;
+            List<Student> bpiStudents = students.Where(s => s.Group.StartsWith("БПИ")).ToList();
+            List<Student> otherStudents = students.Except(bpiStudents).ToList();
+            namesakes = bpiStudents.Intersect(otherStudents, new StudentEqualityComparer()).ToList();
+            return namesakes;
         }
 
         public static List<Student> GenerateStudent(int count)
         {
-            Random rnd = new Random();
+            Random rnd = new Random((int)DateTime.Now.Ticks.GetHashCode());
             List<Student> students = new List<Student>();
             string[] lastNames =
             {

@@ -26,4 +26,10 @@ public class Student
     public string Group { get; set; }
     public int Course { get; set; }
     public Dictionary<string, int> Points { get; set; }
+
+    public override string ToString()
+    {
+        return
+            $"{LastName,-15} {FirstName,-15} {MiddleName,-15} {BirthDate.ToShortDateString(),-15} {Group,-8} {Course}";
+    }
 }
