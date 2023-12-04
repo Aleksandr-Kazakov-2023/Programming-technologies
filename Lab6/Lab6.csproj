@@ -6,7 +6,7 @@
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
         <ProjectGuid>{81753F59-0B8B-4DB3-9F86-26685FE93FCF}</ProjectGuid>
-        <OutputType>Exe</OutputType>
+        <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>Lab6</RootNamespace>
         <AssemblyName>Lab6</AssemblyName>
