@@ -8,6 +8,5 @@ namespace Lab8
         public Action OnEnter;
         public Action OnExit;
         public Action OnUpdate;
-
     }
 }

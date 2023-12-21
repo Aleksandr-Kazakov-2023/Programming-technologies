@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Lab8
 {
-    public class FSM<S, E> where S: Enum where E: Enum
+    public class FSM<S, E> where S : Enum where E : Enum
     {
         private State<S> currentState = null;
         private readonly Dictionary<S, State<S>> states = new();
@@ -20,7 +20,7 @@ namespace Lab8
         {
             foreach (S item in Enum.GetValues(typeof(S)))
             {
-                State<S> state = new() {Name = item};
+                State<S> state = new() { Name = item };
                 states.Add(state.Name, state);
             }
             currentState = GetState(initialState);
