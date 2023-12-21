@@ -87,13 +87,14 @@ namespace Lab8
                 Red(true);
                 Green(false);
                 Yellow(false);
+                tickCount = 0;
             };
 
             fsm[LightState.Red].OnUpdate = () =>
             {
-                tickCount++;
                 if (tickCount == 5)
                     fsm.OnEvent(LightEvent.Next);
+                tickCount++;
             };
 
             fsm[LightState.RedYellow].OnEnter = () =>
@@ -101,12 +102,13 @@ namespace Lab8
                 Red(true);
                 Yellow(true);
                 Green(false);
+                tickCount = 0;
             };
             fsm[LightState.RedYellow].OnUpdate = () =>
             {
-                tickCount++;
-                if (tickCount == 7)
+                if (tickCount == 2)
                     fsm.OnEvent(LightEvent.Next);
+                tickCount++;
             };
 
             fsm[LightState.Green].OnEnter = () =>
@@ -114,14 +116,13 @@ namespace Lab8
                 Red(false);
                 Yellow(false);
                 Green(true);
+                tickCount = 0;
             };
             fsm[LightState.Green].OnUpdate = () =>
             {
-                tickCount++;
-                if (tickCount == 12)
-                {
+                if (tickCount == 5)
                     fsm.OnEvent(LightEvent.Next);
-                }
+                tickCount++;
             };
 
             fsm[LightState.GreenBlink].OnEnter = () =>
@@ -129,19 +130,18 @@ namespace Lab8
                 Red(false);
                 Yellow(false);
                 Green(false);
+                tickCount = 0;
             };
             fsm[LightState.GreenBlink].OnUpdate = () =>
             {
-                tickCount++;
                 if (tickCount % 2 == 0)
                     Green(true);
                 else
                     Green(false);
 
-                if (tickCount == 18)
-                {
+                if (tickCount == 5)
                     fsm.OnEvent(LightEvent.Next);
-                }
+                tickCount++;
             };
 
             fsm[LightState.Yellow].OnEnter = () =>
@@ -149,15 +149,13 @@ namespace Lab8
                 Red(false);
                 Yellow(true);
                 Green(false);
+                tickCount = 0;
             };
             fsm[LightState.Yellow].OnUpdate = () =>
             {
-                tickCount++;
-                if (tickCount == 20)
-                {
+                if (tickCount == 2)
                     fsm.OnEvent(LightEvent.Next);
-                    tickCount = 0;
-                }
+                tickCount++;
             };
 
             fsm.OnEvent(LightEvent.TurnOn);
